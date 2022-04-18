@@ -33,8 +33,6 @@ const ModeSwitcher = styled.div`
   text-transform: capitalize;
 `;
 
-
-
 export const Header = () => {
     const [theme, setTheme] = useState('light');
 
@@ -43,6 +41,7 @@ export const Header = () => {
     useEffect(() => {
         document.body.setAttribute('data-theme', theme)
     }, [theme]);
+    
     return (
         <HeaderEl>
             <Container>
