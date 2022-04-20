@@ -6,8 +6,10 @@ import { Main } from "./components/Main";
 import { HomePage } from './pages/HomePage';
 import { Details } from './pages/Details';
 import { NotFound } from './pages/NotFound';
+import { useState } from "react";
 
 function App() {
+  const [countries, setCountries] = useState([]);
 
   return (
     <>
@@ -15,7 +17,7 @@ function App() {
       <Main>
         <Routes>
           <Route path="/">
-            <Route index element={<HomePage />} />
+            <Route index element={<HomePage countries={countries} setCountries={setCountries}/>} />
             <Route path="country" >
               <Route path=":name" element={<Details />} />
             </Route>

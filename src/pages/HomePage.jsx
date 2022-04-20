@@ -7,14 +7,14 @@ import { Controls } from "../components/Controls";
 import { ALL_COUNTRIES } from '../config';
 import { useNavigate } from 'react-router-dom';
 
-export const HomePage = () => {
-    const [countries, setCountries] = useState([]);
+export const HomePage = ({ countries, setCountries }) => {
+    // const [countries, setCountries] = useState([]);
     let navigate = useNavigate();
+    console.log(countries);
 
-    // console.log(countries);
     useEffect(() => {
-        axios.get(ALL_COUNTRIES).then(({ data }) => setCountries(data));
-    }, [])
+        if (!countries.length) axios.get(ALL_COUNTRIES).then(({ data }) => setCountries(data));
+    }, []);
 
 
     return (
