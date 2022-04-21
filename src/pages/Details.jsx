@@ -23,7 +23,7 @@ export const Details = () => {
 
     return (
         <div>
-            <Button onClick={() => navigate(`/`)}>
+            <Button onClick={() => navigate(-1)}>
                 <IoArrowBack /> Back
             </Button>
             {country && (
