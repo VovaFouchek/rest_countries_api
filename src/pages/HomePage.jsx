@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 import { List } from "../components/List";
 import { Card } from "../components/Card";
@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 export const HomePage = ({ countries, setCountries }) => {
     const [filtredCountries, setfiltredCountries] = useState(countries);
     let navigate = useNavigate();
-    const handleSearch = (search, region) => {
+    const handleSearch = useCallback((search, region) => {
         let data = [...countries];
 
         if (region) {
@@ -22,10 +22,12 @@ export const HomePage = ({ countries, setCountries }) => {
         }
 
         setfiltredCountries(data);
-    }
+    }, [countries])
 
     useEffect(() => {
         handleSearch();
+        // eslint-disable-next-line
+        
     }, [countries]);
 
     useEffect(() => {

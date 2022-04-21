@@ -30,7 +30,7 @@ export const Controls = ({ onSearch }) => {
     useEffect(() => {
         const regionValue = region?.value || '';
         onSearch(search, regionValue);
-    }, [search, region]);
+    }, [search, region, onSearch]);
 
     return (
         <Wrapper>

@@ -103,7 +103,6 @@ export const Info = (props) => {
         currencies = [],
         languages = [],
         borders = [],
-        push,
     } = props;
 
     const [neighbors, setNeighbors] = useState([]);
