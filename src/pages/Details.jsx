@@ -4,6 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { IoArrowBack } from 'react-icons/io5';
 import { searchByCountry } from '../config';
 import { Button } from '../components/Button';
+import { Info } from '../components/Info'
 
 export const Details = () => {
     const params = useParams();
@@ -25,7 +26,9 @@ export const Details = () => {
             <Button onClick={() => navigate(`/`)}>
                 <IoArrowBack /> Back
             </Button>
-            <div>Details {name}</div>
+            {country && (
+                <Info {...country} />
+            )}
         </div>
     )
 }
